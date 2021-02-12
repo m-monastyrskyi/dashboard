@@ -1,28 +1,22 @@
-import useApi from './hooks/useApi';
+import { Layout, Typography } from 'antd';
+import Dashboard from './components/Dashboard';
 
 const App = () => {
-    const { data: users, loading, error } = useApi();
+    const { Header, Footer, Content } = Layout;
 
-    if ( loading ) {
-        return <h1>Loading...</h1>;
-    }
+    return (
+        <Layout>
+            <Header className={'header'}>
+                <Typography.Title level={1}>Dashboard</Typography.Title>
+            </Header>
+            <Content className={'site-layout'}>
+                <div className={'site-layout-background'}>
+                    <Dashboard/>
+                </div>
+            </Content>
+            <Footer className={'footer'}>&copy; 2021</Footer>
+        </Layout>
 
-    if ( error ) {
-        return <>
-            <h1>Ups... Something went wrong...</h1>
-            <pre>{error.message}</pre>
-        </>;
-    }
-
-    return (<>
-            <h1>Users:</h1>
-            <ul>
-                {
-                    users.map(user => <li key={user.id}>{user.name} - {user.email}</li>)
-                }
-            </ul>
-
-        </>
     );
 };
 
