@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# Getting Started with Dashboard App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## To install dependencies run:
+
+```bash
+npm install
+# or
+yarn install
+``` 
 
 ## Available Scripts
 
