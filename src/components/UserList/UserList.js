@@ -5,7 +5,7 @@ const UserList = ({ users }) => {
     const data = users.map(user => ({ key: user.id, ...user }));
     const columns = [
         {
-            title: 'ID', dataIndex: 'id',
+            title: 'ID', dataIndex: 'id', width: 50,
             sorter: (a, b) => a.id - b.id
         },
         {
@@ -24,11 +24,11 @@ const UserList = ({ users }) => {
             render: (_, record) => record.address.city
         },
         {
-            title: 'Edit', key: 'phone',
+            title: 'Edit', key: 'edit', width: 100,
             render: (_, record) => <CustomButton handleClick={editUser} userId={record.id}>Edit</CustomButton>,
         },
         {
-            title: 'Delete', key: 'website',
+            title: 'Delete', key: 'delete', width: 100,
             render: (_, record) => {
                 return <CustomButton handleClick={deleteUser} userId={record.id} danger>Delete</CustomButton>;
             },
