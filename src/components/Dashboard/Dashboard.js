@@ -1,13 +1,20 @@
-import useApi from '../../hooks/useApi';
-import ErrorScreen from '../ErrorScreen';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Skeleton, Typography } from 'antd';
+import ErrorScreen from '../ErrorScreen';
 import UserList from '../UserList';
+import { fetchUsers, usersSelector } from '../../slices/users';
 
 const Dashboard = () => {
     const { Title } = Typography;
-    const { data: users, loading, error } = useApi();
+    const dispatch = useDispatch();
+    const { users, isFetching, error } = useSelector(usersSelector);
 
-    if ( loading ) {
+    useEffect(() => {
+        dispatch(fetchUsers());
+    }, [dispatch]);
+
+    if ( isFetching ) {
         return <Skeleton active/>;
     }
 

@@ -11,7 +11,6 @@ const UserList = ({ users }) => {
         {
             title: 'Name', dataIndex: 'name',
             sorter: (a, b) => a.name.localeCompare(b.name),
-            render: text => <a>{text}</a>,
         },
         {
             title: 'Username', dataIndex: 'username',
@@ -24,11 +23,11 @@ const UserList = ({ users }) => {
             render: (_, record) => record.address.city
         },
         {
-            title: 'Edit', key: 'edit', width: 100,
+            title: 'Edit', width: 100,
             render: (_, record) => <CustomButton handleClick={editUser} userId={record.id}>Edit</CustomButton>,
         },
         {
-            title: 'Delete', key: 'delete', width: 100,
+            title: 'Delete', width: 100,
             render: (_, record) => {
                 return <CustomButton handleClick={deleteUser} userId={record.id} danger>Delete</CustomButton>;
             },
@@ -45,7 +44,7 @@ const UserList = ({ users }) => {
 
     return (
         <>
-            <Table columns={columns} dataSource={data}/>
+            <Table columns={columns} dataSource={data} pagination={false}/>
         </>
     );
 };
