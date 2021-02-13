@@ -1,7 +1,11 @@
+import { Typography } from 'antd';
+
+const {Title, Paragraph} = Typography
+
 const ErrorScreen = ({ error }) => (
     <>
-        <h1>Ups... Something went wrong...</h1>
-        <pre>{error.message}</pre>
+        <Title level={1}>Ups... Something went wrong...</Title>
+        <Paragraph>{error.message}</Paragraph>
     </>
 );
 
