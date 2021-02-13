@@ -1,6 +1,7 @@
 import useApi from '../../hooks/useApi';
 import ErrorScreen from '../ErrorScreen';
 import { Skeleton, Typography } from 'antd';
+import UserList from '../UserList';
 
 const Dashboard = () => {
     const { Title } = Typography;
@@ -17,11 +18,7 @@ const Dashboard = () => {
     return (
         <>
             <Title>Users:</Title>
-            <ul>
-                {
-                    users.map(user => <li key={user.id}>{user.name} - {user.email}</li>)
-                }
-            </ul>
+            <UserList users={users}/>
         </>
     );
 };
