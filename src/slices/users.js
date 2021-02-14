@@ -86,8 +86,9 @@ export function deleteUserFromApi(id){
             dispatch(endApiCall());
         } catch ( error ) {
             console.log(error);
+            const message = error.message + `- User with id ${id} doesn't exist on the API server (because technically we don't update users there)`
             dispatch(endApiCall());
-            dispatch(fetchUsersFailure(error.message));
+            dispatch(fetchUsersFailure(message));
         }
     };
 }
