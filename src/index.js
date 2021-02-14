@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { configureStore } from '@reduxjs/toolkit';
+import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import App from './App';
+import rootReducer from './slices';
 import 'antd/dist/antd.css';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import rootReducer from './slices';
 
 const store = configureStore({ reducer: rootReducer });
 
